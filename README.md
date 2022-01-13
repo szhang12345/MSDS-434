@@ -1,9 +1,3 @@
-# repo
-continuous integration
-
-<<<<<<< HEAD
-[![Python application test with Github Actions](https://github.com/noahgift/repo/actions/workflows/main.yml/badge.svg)](https://github.com/noahgift/repo/actions/workflows/main.yml)
-=======
 Final Project for MSDS-434
 
 ## Overview
@@ -13,4 +7,3 @@ This is a cloud-native analytics application that is hosted on the Google Cloud 
 Source data is derived from the The New York Times US Coronavirus Database (https://console.cloud.google.com/projectselector2/bigquery?p=bigquery-public-data&d=covid19_nyt&page=dataset&supportedpurview=project)
 
 [![Python application test with Github Actions](https://github.com/szhang12345/MSDS-434/actions/workflows/main.yml/badge.svg)](https://github.com/szhang12345/MSDS-434/actions/workflows/main.yml)
->>>>>>> 7b5821282ac1aba092fcb9373ddb0816e8cd648b
