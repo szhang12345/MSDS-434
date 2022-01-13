@@ -1,9 +1,3 @@
-pytest
-pylint
-jupyter
-pytest-cov
-pandas
-nbval
-click
-flask
-requests
+pylint==2.12.2
+pytest==6.2.5
+black==21.12b0
