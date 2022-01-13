@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 
 
-
 """
 Commandline tool for interacting with library
 """
-#badcode=
+# badcode=
 import click
 
 from myrepolib.repomod import print_name
@@ -19,9 +18,11 @@ def pname(name):
     """Prints a name out with apple at the end"""
     try:
         res = print_name(name)
-        click.echo(click.style(res, bg='blue', fg='white'))
+        click.echo(click.style(res, bg="blue", fg="white"))
     except TypeError:
         click.echo("Must pass in Name")
-if __name__ == '__main__':
-    #pylint: disable=no-value-for-parameter
+
+
+if __name__ == "__main__":
+    # pylint: disable=no-value-for-parameter
     pname()

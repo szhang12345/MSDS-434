@@ -1,14 +1,18 @@
 import json
-var=4
+
+var = 4
 from myrepolib.repomod import fake_data
 from myrepolib import __version__
 
 from flask import Flask
+
 app = Flask(__name__)
+
 
 @app.route("/")
 def hello():
     return f"This is my library version {__version__}"
+
 
 @app.route("/fakedata")
 def fakedata():
