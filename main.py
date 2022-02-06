@@ -21,11 +21,11 @@ def predict():
     DATE(forecast_timestamp) as PredDate, round(m.forecast_value) as Cases
     FROM
     ML.FORECAST(MODEL Covid19NYT.cases_arima_model,
-                STRUCT(30 AS horizon, 0.8 AS confidence_level)) m
+                STRUCT(7 AS horizon, 0.95 AS confidence_level)) m
     where m.forecast_timestamp = (select max(forecast_timestamp)
     FROM
     ML.FORECAST(MODEL Covid19NYT.cases_arima_model,
-                STRUCT(30 AS horizon, 0.8 AS confidence_level))
+                STRUCT(7 AS horizon, 0.95 AS confidence_level))
     )
     """
     query_job = bqclient.query(query_string)
@@ -41,11 +41,11 @@ def predict():
     DATE(forecast_timestamp) as PredDate, round(m.forecast_value) as Deaths
     FROM
     ML.FORECAST(MODEL Covid19NYT.deaths_arima_model,
-                STRUCT(30 AS horizon, 0.8 AS confidence_level)) m
+                STRUCT(7 AS horizon, 0.95 AS confidence_level)) m
     where m.forecast_timestamp = (select max(forecast_timestamp)
     FROM
     ML.FORECAST(MODEL Covid19NYT.deaths_arima_model,
-                STRUCT(30 AS horizon, 0.8 AS confidence_level))
+                STRUCT(7 AS horizon, 0.95 AS confidence_level))
     )
     """
     query_job = bqclient.query(query_string)
@@ -101,17 +101,6 @@ def predict():
     for row in results:
         CasesDate = row.cases_date_history
         QtyCases = row.cases_history_value
-
-    
-    # this would not present the data, want to debug later
-    #val2 = jsonify(CasesPredictionDate=CasesPredictionDate.strftime('%m/%d/%Y'),
-    #              PredictedCases=PredCases,
-    #              DeathsPredictionDate=DeathsPredictionDate.strftime('%m/%d/%Y'),
-    #              PredictedDeaths=PredDeaths,
-    #              DeathsDate=DeathsDate.strftime('%m/%d/%Y'),
-    #              MostRecentDeathCount=QtyDeaths,
-    #              CasesDate=CasesDate.strftime('%m/%d/%Y'),
-    #              MostRecentCasesCount=QtyCases)
 
     val = {"CasesPredictionDate":CasesPredictionDate.strftime('%m/%d/%Y'), "PredictedCases":PredCases,
             "DeathsPredictionDate":DeathsPredictionDate.strftime('%m/%d/%Y'),"PredictedDeaths":PredDeaths,
