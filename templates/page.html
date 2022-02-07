@@ -13,8 +13,8 @@
     </style>
     <body>
         <h1>{{ title }}</h1>
-        <h4>The number of confirmed cases and deaths is the cumulative number for the entire country of the United States, including territories.</h4>
-        <h4>Numbers represent the daily cumulative confirmed cases and deaths as reported for the date specified. All confirmed cases and deaths are counted on the date they are first announced.</h4><br>
+        <h5>The number of confirmed cases and deaths is the cumulative number for the entire country of the United States, including territories.</h5>
+        <h5>Numbers represent the daily cumulative confirmed cases and deaths as reported for the date specified. All confirmed cases and deaths are counted on the date they are first announced.</h5><br>
         <!--<p><a href="/predict">Predict</a></p>-->
         <!--<p><a href="/about">About</a></p>-->
         <!--<p><a href="/">Home</a></p>-->
@@ -23,13 +23,13 @@
                 <tr>
                     <td width=50%>
         <script>
-        document.write("<h2>Confirmed Cases:</h2>")
-        document.write("<h2>&nbsp;&nbsp;&nbsp;Current Date: a total of {{ jsonfile.MostRecentCasesCount }} confirmed cases on {{ jsonfile.CasesDate }}</h2>");
-        document.write("<h2>&nbsp;&nbsp;&nbsp;Prediction Date: a total of {{ jsonfile.PredictedCases }} confirmed cases on {{ jsonfile.CasesPredictionDate }}</h2>");
+        document.write("<h3>Confirmed Cases:</h3>")
+        document.write("<h3>&nbsp;&nbsp;&nbsp;Current Date: a total of {{ jsonfile.MostRecentCasesCount }} confirmed cases on {{ jsonfile.CasesDate }}</h3>");
+        document.write("<h2>&nbsp;&nbsp;&nbsp;Prediction Date: a total of {{ jsonfile.PredictedCases }} confirmed cases on {{ jsonfile.CasesPredictionDate }}</h3>");
         document.write("<br>")
-        document.write("<h2>Deaths:</h2>")
-        document.write("<h2>&nbsp;&nbsp;&nbsp;Current Date: a total of {{ jsonfile.MostRecentDeathCount }} deaths on {{ jsonfile.DeathsDate }}</h2>");
-        document.write("<h2>&nbsp;&nbsp;&nbsp;Prediction Date: a total of {{ jsonfile.PredictedDeaths }} deaths on {{ jsonfile.DeathsPredictionDate }}</h2>");
+        document.write("<h3>Deaths:</h3>")
+        document.write("<h3>&nbsp;&nbsp;&nbsp;Current Date: a total of {{ jsonfile.MostRecentDeathCount }} deaths on {{ jsonfile.DeathsDate }}</h3>");
+        document.write("<h3>&nbsp;&nbsp;&nbsp;Prediction Date: a total of {{ jsonfile.PredictedDeaths }} deaths on {{ jsonfile.DeathsPredictionDate }}</h3>");
         </script>
                     </td>
                     <td>
@@ -39,7 +39,7 @@
             </table>
         </div>
     
-        <h3>Data source is The New York Times US Coronavirus Database and is hosted in Google Big Query.</h3>
+        <h6>Data source is The New York Times US Coronavirus Database and is hosted in Google Big Query.</h6>
         <h4>For more information regarding the datasource, please visit <a href="https://github.com/nytimes/covid-19-data" target="_blank">nytimes_covid-19-data</a></h4>
         <h4>Prediction is based on Arima model under confidence level of 0.95.</h4>
         <h4>Siying Zhang - 2022 Winter MSDS 434<h4>
