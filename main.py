@@ -12,7 +12,7 @@ def predict():
     credentials, project_id = google.auth.default(
         scopes=["https://www.googleapis.com/auth/cloud-platform"]
     )
-    project_id = 'qwiklabs-gcp-01-bcc4bb884279'
+    project_id = 'glassy-clarity-341820'
     bqclient = bigquery.Client(credentials= credentials,project=project_id)
 
     #get predicted cases
@@ -65,12 +65,12 @@ def predict():
     date as deaths_date_history,
     SUM(daily_deaths) AS total_deaths_history
     FROM
-    `qwiklabs-gcp-01-bcc4bb884279.Covid19NYT.DailyCasesDeaths`
+    `glassy-clarity-341820.Covid19NYT.DailyCasesDeaths`
     GROUP BY date
     ORDER BY date ASC
     ) dcd
     where dcd.deaths_date_history = (select max(date)
-    FROM `qwiklabs-gcp-01-bcc4bb884279.Covid19NYT.DailyCasesDeaths`)
+    FROM `glassy-clarity-341820.Covid19NYT.DailyCasesDeaths`)
     """
     query_job = bqclient.query(query_string)
     results = query_job.result()
@@ -89,12 +89,12 @@ def predict():
     date as cases_date_history,
     SUM(daily_confirmed_cases) AS total_cases_history
     FROM
-    `qwiklabs-gcp-01-bcc4bb884279.Covid19NYT.DailyCasesDeaths`
+    `glassy-clarity-341820.Covid19NYT.DailyCasesDeaths`
     GROUP BY date
     ORDER BY date ASC
     ) dcd
     where dcd.cases_date_history = (select max(date)
-    FROM `qwiklabs-gcp-01-bcc4bb884279.Covid19NYT.DailyCasesDeaths`)
+    FROM `glassy-clarity-341820.Covid19NYT.DailyCasesDeaths`)
     """
     query_job = bqclient.query(query_string)
     results = query_job.result()
